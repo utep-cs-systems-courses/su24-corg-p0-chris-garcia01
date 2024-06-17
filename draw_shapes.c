@@ -5,10 +5,10 @@
 void print_square(int leftCol, int size)
 {
   int i, j;
-  int endCol = leftCol + size;
+  int endCol = (leftCol + 4) + size;
   for (int row = 0; row < size; row++){
     int col;
-    for (col = 0; col < leftCol; col++) putchar(' ');
+    for (col = 0; col < (leftCol + 4) ; col++) putchar(' ');
     for (       ; col < endCol;  col++) putchar('*');
     putchar('\n');
   }
@@ -20,9 +20,15 @@ void print_triangle(int leftCol, int size)
   for (int row = 0; row <= size; row++) {
     int minCol = leftCol + size - row, maxCol = leftCol + size + row;
     int col;
-    for (col = 0; col < minCol; col++) putchar(' ');
+    for (col = 1; col < minCol; col++) putchar(' ');
     for (       ; col <= maxCol; col++) putchar('*');
     putchar('\n');
   }
 }
 
+//Prints an Arrow
+void print_arrow()
+{
+  print_triangle(5,7);
+  print_square(5,5);
+}
